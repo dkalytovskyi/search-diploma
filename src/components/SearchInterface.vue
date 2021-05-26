@@ -121,56 +121,112 @@ export default {
     }
   },
   methods: {
+    /**
+     * Sets the current operator index and changes operator input visibility
+     * @param{number} index The index of the operator
+     */
     showInput: function (index) {
       if (!(this.currentOperator !== index && this.showOperatorInput)) {
         this.showOperatorInput = !this.showOperatorInput
       }
       this.currentOperator = index
     },
+    /**
+     * Sets the selection start and end positions
+     * @param{object} event The event that fired
+     */
     changeCursorPosition: function ({ target }) {
       this.selectionStart = target.selectionStart
       this.selectionEnd = target.selectionEnd
     },
+    /**
+     * Hides and resets operator input, as well as selections start and end position to the end of request
+     */
     hideInput: function () {
       this.showOperatorInput = false
       this.selectionStart = this.request.length
       this.selectionEnd = this.request.length
       this.operatorInput = ''
     },
+    /**
+     * Adds operator input to the request at cursor position with AND (' ')
+     * @see addToRequestAtPosition
+     * @see hideInput
+     */
     handleAndOperator: function () {
       this.addToRequestAtPosition(this.selectionStart, ` ${this.operatorInput}`)
       this.hideInput()
     },
+    /**
+     * Adds operator input to the request at cursor position with OR (' | ')
+     * @see addToRequestAtPosition
+     * @see hideInput
+     */
     handleOrOperator: function () {
       this.addToRequestAtPosition(this.selectionStart, ` | ${this.operatorInput}`)
       this.hideInput()
     },
+    /**
+     * Adds operator input to the request at cursor position with NOT ('!')
+     * @see addToRequestAtPosition
+     * @see hideInput
+     */
     handleNotOperator: function () {
       this.addToRequestAtPosition(this.selectionStart, ` !${this.operatorInput}`)
       this.hideInput()
     },
+    /**
+     * Adds operator input to the request at cursor position as exact phrase (\"...\")
+     * @see addToRequestAtPosition
+     * @see hideInput
+     */
     handleExactPhrase: function () {
       this.addToRequestAtPosition(this.selectionStart, ` \\"${this.operatorInput}\\"`)
       this.hideInput()
     },
+    /**
+     * Adds distance between words to the request at cursor position ('~N')
+     * @see addToRequestAtPosition
+     * @see hideInput
+     */
     handleDistanceBetweenWords: function () {
       this.addToRequestAtPosition(this.selectionStart, `~${this.operatorInput}`)
       this.hideInput()
     },
+    /**
+     * Adds quorum to the request at cursor position ('/N')
+     * @see addToRequestAtPosition
+     * @see hideInput
+     */
     handleQuorum: function () {
       this.addToRequestAtPosition(this.selectionStart, `/${this.operatorInput}`)
       this.hideInput()
     },
+    /**
+     * Adds NEAR operator to the request at cursor position ('NEAR/N')
+     * @see addToRequestAtPosition
+     * @see hideInput
+     */
     handleNear: function () {
       this.addToRequestAtPosition(this.selectionStart, ` NEAR/${this.operatorInput} `)
       this.hideInput()
     },
+    /**
+     * Adds field operator to the request at cursor position ('@(field1, field2)' or '@field')
+     * @see addToRequestAtPosition
+     * @see hideInput
+     */
     handleFieldSearch: function () {
       this.operatorInput.indexOf(',') > 0
           ? this.addToRequestAtPosition(this.selectionStart, `@(${this.operatorInput}) `)
           : this.addToRequestAtPosition(this.selectionStart, `@${this.operatorInput} `)
       this.hideInput()
     },
+    /**
+     * Adds string to request at a certain position
+     * @param{number} index The position to add to
+     * @param{string} str The string to add
+     */
     addToRequestAtPosition: function (index, str) {
       this.request = this.request.substring(0, index) + str + this.request.substring(index, this.request.length)
     }

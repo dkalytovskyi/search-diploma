@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1622043425978" clover="3.2.0">
+  <project timestamp="1622043425979" name="All files">
+    <metrics statements="32" coveredstatements="32" conditionals="6" coveredconditionals="6" methods="15" coveredmethods="15" elements="53" coveredelements="53" complexity="0" loc="32" ncloc="32" packages="1" files="1" classes="1"/>
+    <file name="SearchInterface.vue" path="C:\Users\dkaly\Desktop\KPI\search-interface\src\components\SearchInterface.vue">
+      <metrics statements="32" coveredstatements="32" conditionals="6" coveredconditionals="6" methods="15" coveredmethods="15"/>
+      <line num="47" count="16" type="stmt"/>
+      <line num="76" count="1" type="stmt"/>
+      <line num="77" count="1" type="stmt"/>
+      <line num="78" count="1" type="stmt"/>
+      <line num="103" count="1" type="stmt"/>
+      <line num="104" count="1" type="stmt"/>
+      <line num="125" count="2" type="cond" truecount="4" falsecount="0"/>
+      <line num="126" count="1" type="stmt"/>
+      <line num="128" count="2" type="stmt"/>
+      <line num="131" count="1" type="stmt"/>
+      <line num="132" count="1" type="stmt"/>
+      <line num="135" count="12" type="stmt"/>
+      <line num="136" count="12" type="stmt"/>
+      <line num="137" count="12" type="stmt"/>
+      <line num="138" count="12" type="stmt"/>
+      <line num="141" count="1" type="stmt"/>
+      <line num="142" count="1" type="stmt"/>
+      <line num="145" count="1" type="stmt"/>
+      <line num="146" count="1" type="stmt"/>
+      <line num="149" count="1" type="stmt"/>
+      <line num="150" count="1" type="stmt"/>
+      <line num="153" count="1" type="stmt"/>
+      <line num="154" count="1" type="stmt"/>
+      <line num="157" count="1" type="stmt"/>
+      <line num="158" count="1" type="stmt"/>
+      <line num="161" count="1" type="stmt"/>
+      <line num="162" count="1" type="stmt"/>
+      <line num="165" count="1" type="stmt"/>
+      <line num="166" count="1" type="stmt"/>
+      <line num="169" count="2" type="cond" truecount="2" falsecount="0"/>
+      <line num="172" count="2" type="stmt"/>
+      <line num="175" count="13" type="stmt"/>
+    </file>
+  </project>
+</coverage>
